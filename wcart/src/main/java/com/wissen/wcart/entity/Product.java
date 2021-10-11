@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="product")
@@ -19,15 +21,21 @@ public class Product {
 	private int productId;
 	
 	@Column(name="product_name")
+	@Size(min = 3, message = "Product Name should have atleast 3 characters")
+	@NotNull
 	private String productName;
 	
 	@Column(name="product_description")
+	@Size(min = 3, message = "Product Description should have atleast 3 characters")
+	@NotNull
 	private String productDescription;
 	
 	@Column(name="price")
+	@NotNull
 	private Double price;
 	
 	@Column(name="product_category")
+	@NotNull
 	private String productCategory;
 
 	public Product() {

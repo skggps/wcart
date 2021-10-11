@@ -39,8 +39,8 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	@Transactional
-	public void addNewProduct(Product newProduct) {
-		productDAO.addNewProduct(newProduct);
+	public Product addNewProduct(Product newProduct) {
+		return productDAO.addNewProduct(newProduct);
 	}
 
 	@Override

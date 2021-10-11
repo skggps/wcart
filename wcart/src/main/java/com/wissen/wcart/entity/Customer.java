@@ -1,31 +1,46 @@
 package com.wissen.wcart.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @Table(name="customer")
-public class Customer {
+public class Customer implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	// field -> login Id, first name, last name, email, phone, address
 	
 	@Id
 	@Column(name="login_id")
+    @ApiModelProperty(name="loginId", notes = "Login Id of Customer", value = "10")
 	private String loginId;
 	
+	@ApiModelProperty(name="firstName", notes = "First Name of Customer", required = true, value = "Steve")
 	@Column(name="first_name")
 	private String firstName;
 	
+	@ApiModelProperty(name="lastName", notes = "Last Name of Customer", required = true, value = "Smith")
 	@Column(name="last_name")
 	private String lastName;
 	
+	@ApiModelProperty(name="email", notes = "Email of Customer", required = true, value = "abc@gmail.com")
 	@Column(name="email")
+	@Email
 	private String email;
 	
+	@ApiModelProperty(name="phoneNo", notes = "Phone no of Customer", required = true, value = "12345678")
 	@Column(name="phone_no")
 	private String phoneNo; 
 	
+	@ApiModelProperty(name="address", notes = "Address of Customer", required = true, value = "New Jersey, USA")
 	@Column(name="address")
 	private String address; // Later will use Address ref
 

@@ -12,7 +12,7 @@ public interface ProductService {
 	
 	public Product findByProductId(int productId);
 	
-	public void addNewProduct(Product newProduct);
+	public Product addNewProduct(Product newProduct);
 	
 	public void updateExistingProduct(Product product);
 	

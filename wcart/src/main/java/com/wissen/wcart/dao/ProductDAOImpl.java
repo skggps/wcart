@@ -60,9 +60,10 @@ public class ProductDAOImpl implements ProductDAO {
 
 
 	@Override
-	public void addNewProduct(Product newProduct) {
+	public Product addNewProduct(Product newProduct) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		currentSession.saveOrUpdate(newProduct);
+		return newProduct;
 	}
 
 
